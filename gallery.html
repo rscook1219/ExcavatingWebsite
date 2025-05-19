@@ -79,6 +79,19 @@
       transform: scale(1.03);
     }
 
+    /* Slideshow image sizing */
+    #slideshow img {
+      width: 600px;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      background: #222;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
     footer {
       text-align: center;
       padding: 10px;
@@ -102,11 +115,12 @@
 
   <!-- Slideshow Section Start -->
   <section id="slideshow" style="text-align:center; margin:40px 0;">
-    <img id="slide-img" src="images/pic1.JPG" alt="Slideshow Image" style="max-width:90%; border-radius:10px; box-shadow:0 0 10px #000;">
+    <img id="slide-img" src="images/pic1.JPG" alt="Slideshow Image">
     <div style="margin-top:10px;">
       <button onclick="prevSlide()">Previous</button>
       <button onclick="nextSlide()">Next</button>
     </div>
+    <div id="slide-counter" style="margin-top:10px; color:#fff; font-size:1.1em;"></div>
   </section>
 
   <!--
@@ -183,15 +197,19 @@
       "images/pic16.jpg",
       "images/pic17.jpg"
     ];
-    let currentSlide = 0;
+   let currentSlide = 0;
 
     function showSlide(index) {
       const img = document.getElementById('slide-img');
+      const counter = document.getElementById('slide-counter');
       if (!img) return;
       if (index < 0) currentSlide = slideImages.length - 1;
       else if (index >= slideImages.length) currentSlide = 0;
       else currentSlide = index;
       img.src = slideImages[currentSlide];
+      if (counter) {
+        counter.textContent = `Image ${currentSlide + 1} of ${slideImages.length}`;
+      }
     }
 
     function prevSlide() {
