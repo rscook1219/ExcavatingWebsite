@@ -98,22 +98,114 @@
     <a href="gallery.html">Gallery</a>
   </nav>
   <main>
-    <h2>Project Gallery</h2>
+  <h2>Project Gallery</h2>
+
+  <!-- Slideshow Section Start -->
+  <section id="slideshow" style="text-align:center; margin:40px 0;">
+    <img id="slide-img" src="images/pic1.JPG" alt="Slideshow Image" style="max-width:90%; border-radius:10px; box-shadow:0 0 10px #000;">
+    <div style="margin-top:10px;">
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </section>
+
+  <!--
     <div class="gallery">
-      <a href="images/gallery1.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 1">
-        <img src="images/gallery1.jpg" alt="Excavation Site 1">
+      <a href="images/pic1.JPG" data-lightbox="mccartney-gallery" data-title="Excavation Site 1">
+        <img src="images/pic1.JPG" alt="Excavation Site 1">
       </a>
-      <a href="images/gallery2.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 2">
-        <img src="images/gallery2.jpg" alt="Excavation Site 2">
+      <a href="images/pic2.JPG" data-lightbox="mccartney-gallery" data-title="Excavation Site 2">
+        <img src="images/pic2.JPG" alt="Excavation Site 2">
       </a>
-      <a href="images/gallery3.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 3">
-        <img src="images/gallery3.jpg" alt="Excavation Site 3">
+      <a href="images/pic3.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 3">
+        <img src="images/pic3.jpg" alt="Excavation Site 3">
       </a>
-      <a href="images/gallery4.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 4">
-        <img src="images/gallery4.jpg" alt="Excavation Site 4">
+      <a href="images/pic4.jpeg" data-lightbox="mccartney-gallery" data-title="Excavation Site 4">
+        <img src="images/pic4.jpeg" alt="Excavation Site 4">
+      </a>
+        <a href="images/pic5.jpeg" data-lightbox="mccartney-gallery" data-title="Excavation Site 4">
+        <img src="images/pic5.jpeg" alt="Excavation Site 5">
+      </a>
+      <a href="images/pic7.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 6">
+        <img src="images/pic7.jpg" alt="Excavation Site 6">
+      </a>
+      <a href="images/pic8.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 7">
+        <img src="images/pic8.jpg" alt="Excavation Site 7">
+      </a>
+      <a href="images/pic9.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 8">
+        <img src="images/pic9.jpg" alt="Excavation Site 8">
+      </a>
+      <a href="images/pic10.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 9">
+        <img src="images/pic10.jpg" alt="Excavation Site 9">
+      </a>
+      <a href="images/pic11.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 10">
+        <img src="images/pic11.jpg" alt="Excavation Site 10">
+      </a>
+      <a href="images/pic12.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 11">
+        <img src="images/pic12.jpg" alt="Excavation Site 11">
+      </a>
+      <a href="images/pic13.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 12">
+        <img src="images/pic13.jpg" alt="Excavation Site 12">
+      </a>
+      <a href="images/pic14.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 13">
+        <img src="images/pic14.jpg" alt="Excavation Site 13">
+      </a>
+      <a href="images/pic15.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 14">
+        <img src="images/pic15.jpg" alt="Excavation Site 14">
+      </a>
+      <a href="images/pic16.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 15">
+        <img src="images/pic16.jpg" alt="Excavation Site 15">
+      </a>
+      <a href="images/pic17.jpg" data-lightbox="mccartney-gallery" data-title="Excavation Site 16">
+        <img src="images/pic17.jpg" alt="Excavation Site 16">
       </a>
     </div>
+  -->
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script>
+    // Slideshow JavaScript
+    const slideImages = [
+      "images/pic1.JPG",
+      "images/pic2.JPG",
+      "images/pic3.jpg",
+      "images/pic4.jpeg",
+      "images/pic5.jpeg",
+      "images/pic7.jpg",
+      "images/pic8.jpg",
+      "images/pic9.jpg",
+      "images/pic10.jpg",
+      "images/pic11.jpg",
+      "images/pic12.jpg",
+      "images/pic13.jpg",
+      "images/pic14.jpg",
+      "images/pic15.jpg",
+      "images/pic16.jpg",
+      "images/pic17.jpg"
+    ];
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const img = document.getElementById('slide-img');
+      if (!img) return;
+      if (index < 0) currentSlide = slideImages.length - 1;
+      else if (index >= slideImages.length) currentSlide = 0;
+      else currentSlide = index;
+      img.src = slideImages[currentSlide];
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    // Initialize slideshow
+    showSlide(0);
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
