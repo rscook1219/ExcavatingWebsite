@@ -14,7 +14,7 @@
       color: #f79b1c;
       background-image: url('images/FullColor_1024x1024_72dpi.jpg');
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: center 35%;
       background-size: cover;
       background-attachment: fixed;
     }
@@ -76,8 +76,8 @@
     .gallery a img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      border-radius: 18px;
+      box-shadow: 0 0 48px rgba(0,0,0,0.6);
       transition: transform 0.2s;
     }
 
@@ -86,16 +86,52 @@
     }
 
     /* Slideshow image sizing */
+    #slideshow {
+      max-width: 95vw;
+      width: 100%;
+      margin: 0 auto 50px auto;
+      padding: 48px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     #slideshow img {
-      width: 600px;
-      height: 600px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #000;
+      width: 90vw;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 80vh;
+      object-fit: center;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #000;
       background: #222;
-      max-width: 100%;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 24px auto;
+    }
+
+    #slideshow button {
+      font-size: 1.5rem;
+      padding: 10px 32px;
+      margin: 0 10px;
+      border-radius: 8px;
+      border: none;
+      background: #f79b1c;
+      color: #222;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #slideshow button:hover {
+      background: #ffb84d;
+    }
+
+    #slide-counter {
+      margin-top: 18px;
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
     footer {
@@ -124,7 +160,7 @@
   <section id="slideshow" style="text-align:center; margin:40px 0;">
     <img id="slide-img" src="images/pic1.JPG" alt="Slideshow Image">
     <div style="margin-top:10px;">
-      <button onclick="prevSlide()">Previous</button>
+      <button onclick="prevSlide()">Prev</button>
       <button onclick="nextSlide()">Next</button>
     </div>
     <div id="slide-counter" style="margin-top:10px; color:#fff; font-size:1.1em;"></div>
